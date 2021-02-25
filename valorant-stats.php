@@ -51,7 +51,7 @@ switch ($request)
         $rank = $base['stats']['rank'];
 
         // echo "Current Rank: " . $rank . " | Elo: " . $elo . " (" . urldecode($riotid) . ")";
-        echo "Current Rank: " . $rank . " (" . urldecode($riotid) . ")";
+        echo $rank . " (" . urldecode($riotid) . ")";
     break;
     case "tracker":
         $base = _getJSON('https://api.henrikdev.xyz/valorant/v1/profile/' . $player . '/' . $tag);
