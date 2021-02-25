@@ -9,12 +9,6 @@ if (!$request)
     return;
 };
 
-$region = $_GET['region'];
-if (!$region)
-{
-    echo '\'&region=\' parameter not defined!';
-    return;
-};
 $player = $_GET['nick'];
 if (!$player)
 {
@@ -49,7 +43,7 @@ switch ($request)
     break;
     case "rank":
         // $base = _getJSON('https://api.henrikdev.xyz/valorant/v1/mmr/' . $region . '/' . $player . '/' . $tag);
-        $base = _getJSON('https://api.henrikdev.xyz/valorant/v2/profile/' . $player . '/' . $tag);
+        $base = _getJSON('https://api.henrikdev.xyz/valorant/v1/profile/' . $player . '/' . $tag);
 
         // Valortant stat calls
         // $rank = $base['data']['currenttierpatched'];
@@ -60,7 +54,7 @@ switch ($request)
         echo "Current Rank: " . $rank . " (" . urldecode($riotid) . ")";
     break;
     case "tracker":
-        $base = _getJSON('https://api.henrikdev.xyz/valorant/v2/profile/' . $player . '/' . $tag);
+        $base = _getJSON('https://api.henrikdev.xyz/valorant/v1/profile/' . $player . '/' . $tag);
 
         // Valortant stat calls
         $rank = $base['stats']['rank'];
